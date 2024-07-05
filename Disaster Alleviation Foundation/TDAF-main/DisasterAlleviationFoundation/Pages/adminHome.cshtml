@@ -1,0 +1,85 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.adminHomeModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/styleSheetNew" />
+<section class="text-center">
+    <div class=" py-1 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="form-row">
+                <!--Card 1 - Allocate Funds card-->
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                    <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                        <div class="card-body p-5 text-center">
+                            <!--Allocate Funds-->
+                            <span class="mb-5" style="font-size: 43px; color: white">Goods </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;"></span>
+                            <!--Available Funds-->
+                            <h5 class=" m-4">Click on the button below to allocate Goods towards an active disaster</h5>
+                            <form method="post">
+                                <!-- Allocate amount button-->
+                                <input type="hidden" name="inputByUser" value="goods" class="form-control" />
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Click to allocate</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                    <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                        <div class="card-body p-5 text-center">
+                            <!--Allocate Funds-->
+                            <span class="mb-5" style="font-size: 43px; color: white">Funds </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;"></span>
+                            <h5 class=" m-4">Click on the button below to allocate Funds towards an active disaster</h5>
+                            <form method="post">
+                                <!-- Allocate amount button-->
+                                <input type="hidden" name="inputByUser" value="funds" class="form-control" />
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Click to allocate</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!--card 2 -Allocate Goods card-->
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                    <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                        <div class="card-body p-5 text-center">
+                            <!--Alloocate Funds-->
+                            <span class="mb-4" style="font-size: 40px; color: white">Purchase Goods </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;"></span>
+                            <h5 class=" m-5">Click on the button below to Purchase goods </h5>
+                            <form method="post">
+
+                                <!--Select disaster-->
+                                <input type="hidden" name="inputByUser" value="purchase" class="form-control" />
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Purchase</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!--card 2 -Allocate Goods card-->
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                    <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                        <div class="card-body p-5 text-center">
+                            <!--Alloocate Funds-->
+                            <span class="mb-4" style="font-size: 40px; color: white">View History </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;"></span>
+                            <h5 class=" m-5">Redirect to View Stats  </h5>
+                            <form method="post">
+
+                                <!--Select disaster-->
+                                <input type="hidden" name="inputByUser" value="stats" class="form-control" />
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">History</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--History page goes here-->
+
+        </div>
+    </div>
+
+</section>

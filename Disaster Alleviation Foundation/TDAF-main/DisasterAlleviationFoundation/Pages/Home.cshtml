@@ -1,0 +1,123 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.HomeModel
+@{
+}
+
+
+<div style="background: linear-gradient(120deg, rgba(242,101,34,1) 35%, rgba(235,0,255,1) 100%); ">
+    <!-- Monetary donations table bootstrap-->
+    <h2 style="text-align:center">All incoming donations</h2>
+
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="container col-lg-12 grid-margin stretch-card">
+                    <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align:center">Monetary Donations</h4>
+                            <p class="card-description" style="text-align:center">
+                                The following table lists all our clients which were generous enough to donate funds towards our foundation.
+                            </p>
+                            <div class="table-responsive">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Donation ID</th>
+                                            <th>Date</th>
+                                            <th>Amount (R)</th>
+                                            <th>Donor</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.monetary)
+                                        {
+                                            <tr>
+                                                <th>@item.DonationID</th>
+                                                <th>@item.Date</th>
+                                                <th>R @item.Amount</th>
+                                                <th>@item.username</th>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <form method="post">
+                        <div class="text-center pt-1 mb-5 pb-1">
+                            <input type="hidden" name="inputByUser" value="allocateMaterial" class="form-control" />
+                            <button class="btn btn-primary" style="width:400px" type="submit">
+                                Donate
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Goods donation table-->
+    <br />
+    <h3 style="text-align:center">Goods donations</h3>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="container col-lg-12 grid-margin stretch-card">
+                    <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align:center">All Goods Donated</h4>
+                            <p class="card-description" style="text-align:center">
+                                The following table lists all the goods donated by our lovely clients.
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Donation ID</th>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                            <th>Number of Items</th>
+                                            <th>Category</th>
+                                            <th>Donor</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.goods)
+                                        {
+                                            <tr>
+                                                <th>@item.DonationID</th>
+                                                <th>@item.DonationDate</th>
+                                                <th>@item.GoodsDescription</th>
+                                                <th>@item.NumberOfItems</th>
+                                                <th>@item.Category</th>
+                                                <th>@item.Username</th>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <form method="post">
+
+
+                        <div class="text-center pt-1 mb-5 pb-1">
+                            <input type="hidden" name="inputByUser" value="allocateGoods" class="form-control" />
+                            <button class="btn btn-primary" style="width:400px" type="submit">
+                                Donate
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

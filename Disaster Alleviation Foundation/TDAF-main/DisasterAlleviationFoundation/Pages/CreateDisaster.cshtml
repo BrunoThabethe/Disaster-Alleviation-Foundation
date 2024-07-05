@@ -1,0 +1,61 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.CreateDisasterModel
+@{
+}
+@if (@Model.errorMessage.Length != 0)
+{
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' style="background-color: #FB8C00" arial-label='close'></button>
+    </div>
+}
+
+<div>
+    <div class="py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                    <div class="card-body p-5 text-center">
+                        <span class="mb-12" style="font-size: 33px; color: white;"><strong>Donate</strong></span>
+                        <form method="post">
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Type Of Disaster</label>
+                                <input type="text" name="title" style="text-align:center" placeholder="E.g Hurricane" class="form-control form-control-lg" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Start Date</label>
+                                <input type="date" name="startDate" style="text-align:center" placeholder="Select a date" class="form-control form-control-lg" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Estimated End Date</label>
+                                <input type="date" name="endDate" style="text-align:center" placeholder="Select a date" class="form-control form-control-lg" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Location</label>
+                                <input type="text" name="location" style="text-align:center" placeholder="Enter Location" class="form-control form-control-lg" />
+                            </div>
+                            <label class="col-sm-12 col-form-label">What is the current status of the disaster?</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" style="text-align:center" name="theStatus">
+                                    <option value="Active">Currently Active</option>
+                                    <option value="Not Active">Nolonger Active</option>
+                                </select>
+
+                            </div>
+
+                            <div class="text-center pt-1 mb-5 pb-1">
+                                <button class="btn btn-primary" style="width:300px; margin-top:20px" type="submit">
+                                    Donate
+                                </button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

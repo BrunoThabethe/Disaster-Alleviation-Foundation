@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DisasterAlleviationFoundation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background: linear-gradient(120deg, rgba(242,101,34,1) 35%, rgba(235,0,255,1) 100%); ">
+    <!--nav bar background color-->
+    <header style="background: linear-gradient(120deg, rgba(242,101,34,1) 65%, rgba(166,1,198,1) 100%);">
+        <!--Edited nav bar-->
+        <nav class="navbar navbar-expand-lg navbar-light ">
+
+            <span class="navbar-brand"><strong>[ Disaster</strong></span>
+            <span class="navbar-brand" style="color: white"><strong>Alleviation</strong></span>
+            <span class="navbar-brand"><strong>Foundation ]</strong></span>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto topnav font-weight-bold">
+
+                    @if (Logic.Users.isInWelcomePage == true)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Sign In</a>
+                        </li>
+                    }
+                    else
+                    {
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CreateDisaster">Capture Disaster</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Donate(Monetary)">Donate(Monetary)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Donate(Goods)">Donate(Goods)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CreateCategory">Create category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Index</a>
+                        </li>
+                        @if (Logic.Users.isAdmin == true)
+                        {
+                            <li class="nav-item" style="background:rgba(242,101,34,1)">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/adminHome">[ Allocate Resources ]</a>
+                            </li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    <div class="container">
+        <main role="main" class="pb-7">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 -  <span class="navbar-brand"><strong>[ Disaster</strong></span>
+            <span class="navbar-brand" style="color: white"><strong>Alleviation</strong></span>
+            <span class="navbar-brand"><strong>Foundation ]</strong></span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

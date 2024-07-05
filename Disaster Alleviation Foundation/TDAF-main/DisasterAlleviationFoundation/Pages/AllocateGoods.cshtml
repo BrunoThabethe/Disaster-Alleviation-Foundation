@@ -1,0 +1,99 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.AllocateGoodsModel
+@{
+}
+
+<h3>Goods Allocation</h3>
+<!-- form-->
+<br />
+<h4>Allocate Goods towards a disaster</h4>
+<div class="py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                <div class="card-body p-5 text-center">
+                    <span class="mb-5" style="font-size: 33px; color: white;"><strong>Donate</strong></span>
+
+                    <form method="post">
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typePasswordX-2">Select Goods to Allocate </label>
+                            <div class="col-sm-12">
+                                <select style="text-align:center" class="form-control" name="description">
+                                    @for (int i = 0; i < Model.Description.Count; i++)
+                                    {
+                                        <option value="@Model.Description[i]">@Model.Description[i]</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typePasswordX-2">Select Disaster to Allocate towards</label>
+                            <div class="col-sm-12">
+                                <select style="text-align:center" class="form-control" name="Selection">
+                                    @for (int i = 0; i < Model.DisastersFrmDB.Count; i++)
+                                    {
+                                        <option value="@Model.DisastersFrmDB[i]">@Model.DisastersFrmDB[i]</option>
+                                    }
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submitButt2" value="goodsB">Allocate</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Existing donations</h3>
+<div>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="container col-lg-12 grid-margin stretch-card">
+                    <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align:center">Monetary Donations</h4>
+                            <p class="card-description" style="text-align:center">
+                                The following table lists all our clients which were generous enough to donate funds towards our foundation.
+                            </p>
+                            <div class="table-responsive">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Goods Deducted</th>
+                                            <th>Towards</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int i = 0; i < Model.DisastersDeducted.Count; i++)
+                                        {
+                                            <tr>
+                                                <th>@Model.goodsDeducted[i]</th>
+                                                <th>@Model.DisastersDeducted[i]</th>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

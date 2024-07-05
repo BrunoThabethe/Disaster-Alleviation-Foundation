@@ -1,0 +1,101 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.PurchaseGoodsModel
+@{
+}
+
+<h3>Purchase Goods</h3>
+@if (Model.Message.Length > 0)
+{
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.Message</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' arial-label='close'></button>
+    </div>
+}
+
+
+<!-- form-->
+<br />
+
+<div class="py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                <div class="card-body p-5 text-center">
+                    <span class="mb-5" style="font-size: 33px; color: white;"><strong>Purchase</strong></span>
+                    <div>Available Money:R @Model.Total</div>
+                    <form method="post">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typeEmailX-2">Description of Goods</label>
+                            <input style="text-align:center" type="text" name="descrGoods" placeholder="enter Description" id="typeEmailX-2" class="form-control form-control-sm" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typeEmailX-2">Amount Required for puchase</label>
+                            <input style="text-align:center" type="text" name="amountForGoods" placeholder="insert Amount" id="typeEmailX-2" class="form-control form-control-sm" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typePasswordX-2">Select Disaster</label>
+                            <div class="col-sm-12">
+                                <select style="text-align:center" class="form-control" name="theSelection">
+                                    @for (int i = 0; i < @Model.DisastersFrmDB.Count; i++)
+                                    {
+                                        <option value="@Model.DisastersFrmDB[i]">@Model.DisastersFrmDB[i] from @Model.DisastersFrmDBLocation[i]</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submitButt1">Purchase</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Existing donations</h3>
+<div>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="container col-lg-12 grid-margin stretch-card">
+                    <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align:center">Monetary Donations</h4>
+                            <p class="card-description" style="text-align:center">
+                                The following table lists all our clients which were generous enough to donate funds towards our foundation.
+                            </p>
+                            <div class="table-responsive">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Amount</th>
+                                            <th>Disasters</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int i = 0; i < Model.Amounts.Count; i++)
+                                        {
+                                            <tr>
+                                                <th>@Model.descriptions[i]</th>
+                                                <th>R @Model.Amounts[i]</th>
+                                                <th>@Model.disasters[i]</th>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

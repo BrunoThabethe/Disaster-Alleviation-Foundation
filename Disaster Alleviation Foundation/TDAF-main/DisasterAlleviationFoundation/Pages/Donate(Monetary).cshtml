@@ -1,0 +1,98 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.Donate_Monetary_Model
+@{
+}
+<div >
+    <h3>Monetary donations</h3>
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' arial-label='close'></button>
+    </div>
+    <!-- form-->
+    <br />
+    <h4>Please enter the amount of funds you are willing to donate towards the Disaster Alleviation Foundation.</h4>
+    <div class="py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                    <div class="card-body p-5 text-center">
+                        <span class="mb-5" style="font-size: 33px; color: white;"><strong>Donate</strong></span>
+                        <form method="post">
+                            <div class="form-outline mb-4">
+                                <label class="form-label">Amount</label>
+                                <input type="text" name="amount" style="text-align:center" placeholder="E.g 4000" class="form-control form-control-lg" />
+                            </div>
+
+                            <label class="col-sm-12 col-form-label">Would You like to be Anonymous?</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" style="text-align:center" name="theSelection">
+                                    <option value="Yes">Make me anonymous</option>
+                                    <option value="No">You can Mention my name</option>
+                                </select>
+
+                            </div>
+                            <div class="text-center pt-1 mb-5 pb-1">
+                                <button class="btn btn-primary" style="width:300px; margin-top:20px" type="submit">
+                                    Donate
+                                </button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Existing donations</h3>
+    <div>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="container col-lg-12 grid-margin stretch-card">
+                        <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align:center">Monetary Donations</h4>
+                                <p class="card-description" style="text-align:center">
+                                    The following table lists all our clients which were generous enough to donate funds towards our foundation.
+                                </p>
+                                <div class="table-responsive">
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Donation ID</th>
+                                                <th>Date</th>
+                                                <th>Amount (R)</th>
+                                                <th>Donor</th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.monetaryList)
+                                            {
+                                                <tr>
+                                                    <th>@item.DonationID</th>
+                                                    <th>@item.Date</th>
+                                                    <th>R @item.Amount</th>
+                                                    <th>@item.username</th>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <h3>Total Amount of funds : R @Model.totalFunds</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+</div>

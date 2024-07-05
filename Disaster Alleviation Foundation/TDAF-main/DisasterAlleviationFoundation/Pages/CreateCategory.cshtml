@@ -1,0 +1,35 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.CreateCategoryModel
+@{
+}
+<div class='alert-warning alert-dismissible fade show' role="alert">
+    <strong>@Model.errorMessage</strong>
+    <button type='button' class='btn-close' data-bs-dismiss='alert' style="background-color: #FB8C00" arial-label='close'></button>
+</div>
+<div class="container border">
+    <h1 class="display-4">Create new category</h1>
+    <form id="login_form" class="form_class" method="post">
+
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Category Name</label>
+            <div class="col-sm-6">
+                <input type="text" style="text-align:center" class="form-control" placeholder="eg.Watches" name="CategoryName" value="" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Category Description</label>
+            <div class="col-sm-6">
+                <input type="text" style="text-align:center" class="form-control" placeholder="Description" name="meh" value="" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid"><button type="submit" class="btn btn-primary" style="background-color: #FB8C00">Create</button></div>
+
+        </div>
+
+    </form>
+
+
+</div>

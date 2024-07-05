@@ -1,0 +1,59 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.LoginModel
+@{
+}
+
+@if (Logic.Users.Message.Length > 0)
+{
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Logic.Users.Message</strong>
+    </div>
+}
+<section class="text-center">
+
+    <div class=" py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                    <div class="card-body p-5 text-center">
+                        <span class="mb-5" style="font-size: 43px; color: rgba(242,101,34,1)">Sign </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;">In</span>
+
+                        <form method="post">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="typeEmailX-2">Username</label>
+                                <input type="text" name="username" style="text-align:center" placeholder="Username" id="typeEmailX-2" class="form-control form-control-lg" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="typePasswordX-2">Password</label>
+                                <input type="password" name="password" style="text-align:center" placeholder="Password" id="typePasswordX-2" class="form-control form-control-lg" />
+                            </div>
+
+                            <label class="col-sm-6 col-form-label">Login Type</label>
+
+                            <div class="col-sm-12 mb-4">
+                                <select class="form-control" style="text-align:center" name="theSelection">
+                                   
+                                        <option value="Client">Client</option>
+                                        <option value="Admin">Admin</option>
+                                    
+                                </select>
+
+                            </div>
+
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">
+                                Don't have an account? <a href="Register"
+                                                          class="link-danger">Register</a>
+                            </p>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+

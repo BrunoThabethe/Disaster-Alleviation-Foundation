@@ -1,0 +1,252 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (Model.errorMessage.Length != 0)
+{
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' arial-label='close'></button>
+    </div>
+}
+
+<!-- Monetary donations table bootstrap-->
+<br />
+<h2 style="text-align: center; color: white" class="m-5 font-weight-bold"></h2>
+<h2 style="text-align: center; color: white" class="m-5 font-weight-bold">Welcome to the [Disaster Alleviation Foundation!]</h2>
+<h4 style="text-align: center; color: white" class="mt-5 font-weight-bold">We are a non-profit organisation created to help limit the impact </h4>
+<h4 style="text-align: center; color: white" class="mb-5 font-weight-bold">of Natural Disasters in the World</h4>
+<h2 style="text-align:center" class="m-5 font-weight-bold">Throughout the year we've recieved donations from our dearest of clients</h2>
+<h2 style="text-align:center" class="m-5 font-weight-bold">The details of all the Donations we have Received are as follows</h2>
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container col-lg-12 grid-margin stretch-card">
+                <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align:center">Monetary Donations</h4>
+                        <p class="card-description" style="text-align:center">
+                            The following table lists all our clients which were generous enough to donate funds towards our foundation.
+                        </p>
+                        <div class="table-responsive">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Donation ID</th>
+                                        <th>Date</th>
+                                        <th>Amount (R)</th>
+                                        <th>Donor</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.monetary)
+                                    {
+                                        <tr>
+                                            <th>@item.DonationID</th>
+                                            <th>@item.Date</th>
+                                            <th>R @item.Amount</th>
+                                            <th>@item.username</th>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3 style="text-align:center">Total Amount of funds : R @Model.totalFunds</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Goods donation table-->
+<br />
+<h3 style="text-align:center">Goods donations</h3>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container col-lg-12 grid-margin stretch-card">
+                <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align:center">All Goods Donated</h4>
+                        <p class="card-description" style="text-align:center">
+                            The following table lists all the goods donated by our lovely clients.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Donation ID</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Number of Items</th>
+                                        <th>Category</th>
+                                        <th>Donor</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.goods)
+                                    {
+                                        <tr>
+                                            <th>@item.DonationID</th>
+                                            <th>@item.DonationDate</th>
+                                            <th>@item.GoodsDescription</th>
+                                            <th>@item.NumberOfItems</th>
+                                            <th>@item.Category</th>
+                                            <th>@item.Username</th>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3 style="text-align:center">Total Amount of Goods :  @Model.totalResources</h3>
+                        <h4 style="text-align:center">Thank you once again!</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<h2 class="card-title" style="text-align:center">Currently Active disasters</h2>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container col-lg-12 grid-margin stretch-card">
+                <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align:center">Active Disasters</h4>
+                        <p class="card-description" style="text-align:center">
+                            The following table lists all the goods donated by our lovely clients.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Title for disaster</th>
+                                        <th>Start Date</th>
+                                        <th>start Location</th>
+                                        <th>Current Status</th>
+
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.disastersActiveList)
+                                    {
+                                        <tr>
+                                            <th>@item.Title</th>
+                                            <th>@item.startDate</th>
+                                            <th>@item.location</th>
+                                            <th>@item.status</th>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3 style="text-align:center">Total Amount of Currently Active disasters :  @Model.totalActive</h3>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<!-- donated goods-->
+<h2 class="card-title" style="text-align:center">Goods Allocated towards active disasters</h2>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container col-lg-12 grid-margin stretch-card">
+                <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align:center">All Goods Allocated</h4>
+                        <p class="card-description" style="text-align:center">
+                            The following table lists all the goods allocated towards active disasters.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-dark ">
+                                <thead>
+                                    <tr>
+                                        <th>Associated Disaster</th>
+                                        <th>Goods donated</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.GoodsAllocatedList)
+                                    {
+                                    <tr>
+                                        <th>@item.GoodsDescription</th>
+                                        <th>@item.Disaster</th>
+
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<!--Donated money-->
+<h2 class="card-title" style="text-align:center">Money Allocated towards active disasters</h2>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="container col-lg-12 grid-margin stretch-card">
+                <div class="card" style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.4); backdrop-filter: blur(40px); ">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align:center">Allocated Money</h4>
+                        <p class="card-description" style="text-align:center">
+                            The following table lists all the Money Allocated towards active disasters.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-dark ">
+                                <thead>
+                                    <tr>
+                                        <th>Associated Disaster</th>
+                                        <th>Amount donated</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.MoneyAllocatedList)
+                                    {
+                                        <tr>
+                                            <th>@item.Disaster</th>
+                                            <th>R @item.amount</th>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

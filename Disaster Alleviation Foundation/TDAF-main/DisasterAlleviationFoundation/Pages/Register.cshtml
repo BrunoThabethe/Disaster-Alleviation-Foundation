@@ -1,0 +1,69 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.RegisterModel
+@{
+}
+
+<h3 style="text-align:center">Create an Account</h3>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.errorMessage</strong>
+    </div>
+}
+<!-- Section: Design Block -->
+
+
+<section class="text-center">
+
+    <div class=" py-1 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 p-5">
+                <div class="card shadow-2-strong " style="border-radius: 1rem; background: hsla(0, 0%, 100%, 0.3); backdrop-filter: blur(30px); ">
+                    <div class="card-body p-5 text-center">
+                        <span class="mb-5" style="font-size: 43px; color: rgba(242,101,34,1)">Sign </span><span class="mb-5" style="font-size: 43px; color: #bd1ad5;">Up!</span>
+
+                        <form method="post">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="form3Example1" style="text-align:center" name="name" placeholder="name" class="form-control" />
+                                        <label class="form-label" for="form3Example1">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" name="Lname" id="form3Example2" style="text-align:center" placeholder="last name" class="form-control" />
+                                        <label class="form-label" for="form3Example2">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example3" name="Username" style="text-align:center" placeholder="Username" class="form-control" />
+                                <label class="form-label" for="form3Example3">Username</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" name="password" style="text-align:center" placeholder="password" id="form3Example4" class="form-control" />
+                                <label class="form-label" for="form3Example4">Password</label>
+                            </div>
+
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Sign up
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Section: Design Block -->
